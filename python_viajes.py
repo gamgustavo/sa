@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, request, jsonify
 import json
-
+import random
 
 
 
@@ -26,6 +26,7 @@ app = Flask(__name__)
 @app.route('/crear_viaje', methods = ['POST'])
 def crear_viaje():
     if request.method == 'POST':
+        cantidad = random.randint(0, 20000)
         nombre_cliente = request.form['nombre_cliente']
         nombre_piloto = request.form['nombre_piloto']
         longitud_cliente = request.form['longitud_cliente']
@@ -34,7 +35,7 @@ def crear_viaje():
         latitud_piloto = request.form['latitud_piloto']  
         precio = 50
         estado = 'atendido'
-        my_objects.append( viaje( my_objects.count(),nombre_cliente, nombre_piloto, longitud_cliente,latitud_cliente,longitud_piloto,latitud_piloto,precio,estado))
+        my_objects.append( viaje( cantidad,nombre_cliente, nombre_piloto, longitud_cliente,latitud_cliente,longitud_piloto,latitud_piloto,precio,estado))
         result = dict(nombre_cliente=nombre_cliente, nombre_piloto = nombre_piloto, longitud_cliente = longitud_cliente,latitud_cliente =latitud_cliente,longitud_piloto = longitud_piloto,latitud_piloto = latitud_piloto,precio = precio,estado =estado)
         return json.dumps(result)
 
@@ -45,4 +46,5 @@ def crear_viaje():
 
 
 if __name__ == '__main__':
+    cantidad = 0
     app.run(host='127.0.0.1', port=5006)

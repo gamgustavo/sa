@@ -11,13 +11,26 @@ class cliente(object):
         self.apellido = apellido
 
 
-
 my_objects = []        
 app = Flask(__name__)
 
 
 
+
 @app.route('/crear_cliente', methods = ['POST'])
+#"""Metodo Post para la creacion de Cliente
+#
+#    Parámetros:
+#    number -- number
+#    nombre -- nombre
+#    apellido -- apellido
+#    logitud -- logitud
+#    latitud -- latitud
+#
+#    Return:
+#    Devuelve el objeto creado
+#    
+#"""
 def crear_cliente():
     if request.method == 'POST':
         number = request.form['number']
@@ -27,6 +40,16 @@ def crear_cliente():
         result = dict(number=number, nombre=nombre,apellido = apellido)
         return json.dumps(result)
 
+
+@app.route('/get_cliente', methods = ['POST'])
+def get_cliente():
+    nombre = request.form['nombre']
+    for obj in my_objects:
+        if obj.nombre == nombre:
+            person = dict(number=obj.number, nombre=obj.nombre, apellido = obj.apellido )
+            return json.dumps(person)
+    person  = dict(number=0, nombre=0, apellido = 0 )
+    return json.dumps(person)
 
 
 

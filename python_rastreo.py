@@ -19,24 +19,44 @@ app = Flask(__name__)
 def get_posicion_detalle(number,tipo):
     for obj in my_objects:
         if obj.number == number and obj.tipo == tipo:
-            person = dict(logitud=obj.logitud, latitud=obj.latitud)
-            return person
-        else:
-            person = person = dict(logitud=0, latitud=0)
-            return person
+            person = dict(logitud=obj.longitud, latitud=obj.latitud)
+            return json.dumps(person)
+    person = person = dict(logitud=0, latitud=0)
+    return json.dumps(person)
 
 
 @app.route('/get_posicion', methods = ['POST'])
+#"""Metodo Post para la obtencion de posiciones
+#
+#    Parámetros:
+#    number -- number
+#    tipo -- tipo
+#    apellido -- apellido
+#
+#    Return:
+#    Devuelve la posicion de persona o conductor
+#    
+#   """
 def get_posicion():
     if request.method == 'POST':
         number = request.form['number']
         tipo = request.form['tipo']
         resultado = get_posicion_detalle(number,tipo)
-        result = dict(number=number, logitud=resultado['logitud'],latitud = resultado['latitud'])
-        return json.dumps(result)
+        return resultado
 
 
 @app.route('/create_posicion', methods = ['POST'])
+#"""Metodo Post para la creacion de Posiciones
+#
+#    Parámetros:
+#    number -- number
+#    tipo -- tipo
+#    apellido -- apellido
+#
+#    Return:
+#    Devuelve la posicion de persona o conductor
+#    
+#   """
 def create_posicion():
     if request.method == 'POST':
         number = request.form['number']
@@ -49,6 +69,16 @@ def create_posicion():
 
 
 @app.route('/update_posicion', methods = ['POST'])
+#"""Metodo Post para la actualizacion de posicione
+#
+#    Parámetros:
+#    number -- number
+#    tipo -- tipo
+#
+#    Return:
+#    Devuelve la posicion de persona o conductor
+#    
+#   """
 def update_posicion():
     if request.method == 'POST':
         number = request.form['number']
@@ -61,9 +91,9 @@ def update_posicion():
                 obj.longitud = longitud
                 obj.latitud = latitud
                 person = dict(logitud=obj.logitud, latitud=obj.latitud)
-                return person
+                return json.dumps(person)
         person = person = dict(logitud=0, latitud=0)
-        return person
+        return json.dumps(person)
 
 
 

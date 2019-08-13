@@ -18,6 +18,20 @@ app = Flask(__name__)
 
 
 @app.route('/crear_conductor', methods = ['POST'])
+#"""Metodo Post para la creacion de conductores
+#
+#    Parámetros:
+#    number -- number
+#    nombre -- nombre
+#    apellido -- apellido
+#    automotor -- automotor   
+#    logitud -- logitud
+#    latitud -- latitud
+#
+#    Return:
+#    Devuelve el objeto creado
+#    
+#   """
 def crear_conductor():
     if request.method == 'POST':
         number = request.form['number']
@@ -31,10 +45,9 @@ def crear_conductor():
 
 @app.route('/get_conductor', methods = ['POST'])
 def get_conductor():
-    conductor_obtenido = my_objects.pop()
-    result = dict(number=conductor_obtenido.number, nombre=conductor_obtenido.nombre,apellido = conductor_obtenido.apellido,automotor = conductor_obtenido.automotor)
-    return json.dumps(result)
-
+    for obj in my_objects:
+        person = dict(number=obj.number, nombre=obj.nombre, apellido = obj.apellido, automotor = obj.automotor)
+        return json.dumps(person)
 
 
 
