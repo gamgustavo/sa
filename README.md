@@ -1,5 +1,4 @@
-### Software Avanzado - Tarea  - 201504429
-![alt text](https://github.com/gamgustavo/sat2/blob/master/arquitectura.PNG)
+
 
 # Tarea DEVOPS
 
@@ -8,6 +7,8 @@ Se utilizo la herramienta scrutinizer para realizar el test de calidad de codigo
 ![alt text](https://github.com/gamgustavo/sat2/blob/master/calidad.PNG)
 ![alt text](https://github.com/gamgustavo/sat2/blob/master/calidad02.PNG)
 
+### Software Avanzado - Tarea  - 201504429
+![alt text](https://github.com/gamgustavo/sat2/blob/master/arquitectura.PNG)
 
 # Clientes
 - crear_cliente
