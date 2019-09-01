@@ -7,6 +7,17 @@ Se utilizo la herramienta scrutinizer para realizar el test de calidad de codigo
 ![alt text](https://github.com/gamgustavo/sat2/blob/master/calidad.PNG)
 ![alt text](https://github.com/gamgustavo/sat2/blob/master/calidad02.PNG)
 
+# SEMVER como estandar de versionamiento
+![alt text](https://github.com/gamgustavo/sat2/blob/master/samver.PNG)
+
+# Utilizacion de Ramificaciones en repositorio de versiones
+![alt text](https://github.com/gamgustavo/sat2/blob/master/ramas.PNG)
+
+# Herramienta para construccion de artefactos JENKIS
+![alt text](https://github.com/gamgustavo/sat2/blob/master/Jenkis01.PNG)
+![alt text](https://github.com/gamgustavo/sat2/blob/master/Jenkis02.PNG)
+
+
 ### Software Avanzado - Tarea  - 201504429
 ![alt text](https://github.com/gamgustavo/sat2/blob/master/arquitectura.PNG)
 
